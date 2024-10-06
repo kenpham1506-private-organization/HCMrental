@@ -172,16 +172,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     const daysDiff = Math.floor((currentDate - activeDateObj) / (1000 * 60 * 60 * 24));
 
                     if (activeDateObj > currentDate) {
-                        statusHTML = '<span class="dot blue" id='${id}'></span><span class="status-text blue">Rented</span>';
+                        statusHTML = '<span class="dot blue" id='"statusColor" + ${id}'></span><span class="status-text blue" id='"statusText" + ${id}'>Rented</span>';
                     } else if (daysDiff < 30) {
-                        statusHTML = '<span class="dot green" id='${id}'></span><span class="status-text green">Active</span>';
+                        statusHTML = '<span class="dot green" id='"statusColor" + ${id}'></span><span class="status-text green" id='"statusText" + ${id}'>Active</span>';
                     } else if (daysDiff < 90) {
-                        statusHTML = '<span class="dot orange" id='${id}'></span><span class="status-text orange">Pending</span>';
+                        statusHTML = '<span class="dot orange" id='"statusColor" + ${id}'></span><span class="status-text orange" id='"statusText" + ${id}'>Pending</span>';
                     } else {
-                        statusHTML = '<span class="dot red" id='${id}'></span><span class="status-text red">Inactive</span>';
+                        statusHTML = '<span class="dot red" id='"statusColor" + ${id}'></span><span class="status-text red" id='"statusText" + ${id}'>Inactive</span>';
                     }
                 } else {
-                    statusHTML = '<span class="dot gray" id='${id}'></span><span class="status-text gray">No active date</span>';
+                    statusHTML = '<span class="dot gray" id='"statusColor" + ${id}'></span><span class="status-text gray" id='"statusText" + ${id}'>No active date</span>';
                 }
 
                 // Create the carousel images by splitting the imageUrl string
@@ -264,6 +264,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             if (result.status === 'success') {
                 alert('Active date updated successfully');
+                document.getElementById('("statusColor" + id)').class = dot green;
+                document.getElementById('("statusText" + id)').class = status-text green;
+                document.getElementById('("statusText" + id)').textContent = "Active";
             }
         } catch (error) {
             console.error('Error updating rental status:', error);
