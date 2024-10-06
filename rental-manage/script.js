@@ -70,13 +70,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renewToken() {
-        // Trigger the One Tap prompt or refresh the token
-        google.accounts.id.prompt((notification) => {
-            if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-                console.error('Token renewal failed or skipped.');
-                displayLoggedOutState();
+        google.accounts.oauth2.initTokenClient({
+            client_id: '809802956700-h31b6mb6lrria57o6nr38kafbqnhl8o6.apps.googleusercontent.com',
+            scope: 'email profile',
+            callback: (response) => {
+                if (response.access_token) {
+                    idToken = response.access_token;
+                    const decodedToken = jwt_decode(idToken);
+                    tokenExpiryTime = decodedToken.exp * 1000;  // Set the new expiry time
+                    localStorage.setItem('idToken', idToken);  // Update localStorage
+                    localStorage.setItem('tokenExpiryTime', tokenExpiryTime);
+                    console.log('Token renewed successfully.');
+                } else {
+                    console.error('Token renewal failed.');
+                    displayLoggedOutState();  // If renewal fails, log out the user
+                }
             }
-        });
+        }).requestAccessToken();
     }
 
     function displayLoggedInState(email, avatar) {
