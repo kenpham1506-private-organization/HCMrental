@@ -174,14 +174,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (activeDateObj > currentDate) {
                         statusHTML = `<span class="dot blue" id="statusColor${id}"></span><span class="status-text blue" id="statusText${id}">Rented</span>`;
                     } else if (daysDiff < 30) {
-                        statusHTML = `<span class="dot green" id="statusColor${id}"></span><span class="status-text green" id='"statusText${id}">Active</span>`;
+                        statusHTML = `<span class="dot green" id="statusColor${id}"></span><span class="status-text green" id="statusText${id}">Active</span>`;
                     } else if (daysDiff < 90) {
-                        statusHTML = `<span class="dot orange" id="statusColor${id}"></span><span class="status-text orange" id='"statusText${id}">Pending</span>`;
+                        statusHTML = `<span class="dot orange" id="statusColor${id}"></span><span class="status-text orange" id="statusText${id}">Pending</span>`;
                     } else {
-                        statusHTML = `<span class="dot red" id="statusColor${id}"></span><span class="status-text red" id='"statusText${id}">Inactive</span>`;
+                        statusHTML = `<span class="dot red" id="statusColor${id}"></span><span class="status-text red" id="statusText${id}">Inactive</span>`;
                     }
                 } else {
-                    statusHTML = `<span class="dot gray" id="statusColor${id}"></span><span class="status-text gray" id='"statusText${id}">No active date</span>`;
+                    statusHTML = `<span class="dot gray" id="statusColor${id}"></span><span class="status-text gray" id="statusText${id}">No active date</span>`;
                 }
 
                 // Create the carousel images by splitting the imageUrl string
