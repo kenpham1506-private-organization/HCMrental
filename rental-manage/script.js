@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const rentalDiv = document.createElement('div');
                 rentalDiv.className = 'rental-item';
-                rentalDiv.id = '${id}';
+                rentalDiv.id = id;
                 rentalDiv.innerHTML = `
                     <div class="rental-header">
                         <h3><a href="../rental-page/?id=${id}">${propertyName || 'No name'}</a></h3>
