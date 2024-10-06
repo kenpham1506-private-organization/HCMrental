@@ -264,9 +264,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             if (result.status === 'success') {
                 alert('Active date updated successfully');
-                document.getElementById('("statusColor" + id)').class = "dot green";
-                document.getElementById('("statusText" + id)').class = "status-text green";
-                document.getElementById('("statusText" + id)').textContent = "Active";
+                
+                const statusColorElem = document.getElementById(`statusColor${id}`);
+                const statusTextElem = document.getElementById(`statusText${id}`);
+            
+                if (statusColorElem && statusTextElem) {
+                    statusColorElem.classList.remove('gray', 'red', 'orange', 'blue'); // Remove any existing status color classes
+                    statusColorElem.classList.add('green'); // Set the new status color to green
+                    statusTextElem.classList.remove('gray', 'red', 'orange', 'blue'); // Remove any existing status text classes
+                    statusTextElem.classList.add('green'); // Set the new status text class to green
+                    statusTextElem.textContent = 'Active'; // Update the text to "Active"
+                } else {
+                    console.error('Error: Status elements not found for id:', id);
+                }
             }
         } catch (error) {
             console.error('Error updating rental status:', error);
