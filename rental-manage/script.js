@@ -330,6 +330,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             if (result.status === 'success') {
                 alert('Rented date updated successfully');
+                
+                const statusColorElem = document.getElementById(`statusColor${id}`);
+                const statusTextElem = document.getElementById(`statusText${id}`);
+            
+                if (statusColorElem && statusTextElem) {
+                    statusColorElem.classList.remove('gray', 'red', 'orange', 'blue'); // Remove any existing status color classes
+                    statusColorElem.classList.add('blue'); // Set the new status color to blue
+                    statusTextElem.classList.remove('gray', 'red', 'orange', 'blue'); // Remove any existing status text classes
+                    statusTextElem.classList.add('blue'); // Set the new status text class to blue
+                    statusTextElem.textContent = 'Rented'; // Update the text to "Rented"
+                } else {
+                    console.error('Error: Status elements not found for id:', id);
+                }
             }
         } catch (error) {
             console.error('Error updating rented date:', error);
@@ -356,6 +369,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             if (result.status === 'success') {
                 alert('Inactive date updated successfully');
+                
+                const statusColorElem = document.getElementById(`statusColor${id}`);
+                const statusTextElem = document.getElementById(`statusText${id}`);
+            
+                if (statusColorElem && statusTextElem) {
+                    statusColorElem.classList.remove('gray', 'red', 'orange', 'blue'); // Remove any existing status color classes
+                    statusColorElem.classList.add('red'); // Set the new status color to red
+                    statusTextElem.classList.remove('gray', 'red', 'orange', 'blue'); // Remove any existing status text classes
+                    statusTextElem.classList.add('red'); // Set the new status text class to red
+                    statusTextElem.textContent = 'Inactive'; // Update the text to "Inactive"
+                } else {
+                    console.error('Error: Status elements not found for id:', id);
+                }
             }
         } catch (error) {
             console.error('Error updating rental status:', error);
