@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             checkUserStatus(); // Check login status on load
 
             // Automatically check token validity and refresh if necessary
-            setInterval(checkTokenValidity, 30000); // Check every 30 seconds
+            setInterval(checkTokenValidity, 60000); // Check every 60 seconds
         } else {
             console.error('Google Sign-In library not loaded.');
         }
