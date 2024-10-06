@@ -264,8 +264,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             if (result.status === 'success') {
                 alert('Active date updated successfully');
-                document.getElementById('("statusColor" + id)').class = dot green;
-                document.getElementById('("statusText" + id)').class = status-text green;
+                document.getElementById('("statusColor" + id)').class = "dot green";
+                document.getElementById('("statusText" + id)').class = "status-text green";
                 document.getElementById('("statusText" + id)').textContent = "Active";
             }
         } catch (error) {
