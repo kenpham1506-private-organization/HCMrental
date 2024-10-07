@@ -69,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkTokenValidity() {
         const currentTime = new Date().getTime();
+        console.log('scanning...');
+        console.log(currentTime);
+        console.log(tokenExpiryTime - 60000);
         
         if (currentTime > tokenExpiryTime - 60000) {  // Renew token if it's about to expire in 1 minute
             console.log('Token is about to expire. Attempting to renew...');
