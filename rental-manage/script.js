@@ -81,9 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renewToken() {
         // Request token silently if the browser allows
-        tokenClient.requestAccessToken({
-            prompt: 'none'  // Try to avoid triggering a popup
-        });
+        tokenClient.requestAccessToken();
     }
 
     // Handle token renewal response
